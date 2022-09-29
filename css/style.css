@@ -1,66 +1,158 @@
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap");
-
-/** а ты тут что забыл? ушел! **/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
 
 :root {
-  --bg-color: #101113;
-  --txt-color: #565e73;
+  --color-primary: #002626;
+  --color-secondary: #F0F7EE;
+  --duration: 1s;
+  --nav-duration: calc(var(--duration) / 4);
+  --ease: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --space: 1rem;
+  --font-primary: 'Montserrat', sans-serif;
+  --font-heading: 600;
+  --font-size: 1.125rem;
+  --line-height: 1.5;
 }
 
-html,
+* {
+  box-sizing: border-box;
+}
+
 body {
-  max-width: 100%;
-  overflow-x: hidden;
+  font-family: var(--font-primary);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
 }
 
-body {
-  background-color: var(--bg-color);
-  font-family: "Ubuntu Mono", monospace;
-  color: var(--txt-color);
+.card {
+  margin: 12px;
+  
+  margin-right: 0px;
+  margin-left: 0px;
+  
+  background: #fff;
+  border-radius: 0px;
+  border-color: #fff;
+  
+  width: 95%;
+  
+  transition: 0.50s;
 }
 
-.contenti {
-  padding-top: 1rem;
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-a {
-  color: #4f7fe0;
-  background-image: -webkit-linear-gradient(45deg, #4f7fe0 21%, #ebdb34 78%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  text-fill-color: transparent;
-  -webkit-text-fill-color: transparent;
-}
-
-.whoawe {
+.card-title {
+  font-family: 'Montserrat', sans-serif;
+      
   text-align: left;
-  font-size: 45px;
-  font-weight: 400;
+  font-weight: 500;
+  font-size: 30px;
+  
+  
+  color: #000000;
 }
 
-.we {
+.card-text {
+   font-family: 'Montserrat', sans-serif;
+  
   text-align: left;
-  font-size: 20px;
-  margin-top: 10px;
-  font-weight: 400;
-
-  opacity: 0;
-  background-color: var(--bg-color);
-  animation-name: mbio;
-  animation-delay: calc(var(--delay, 0) * 1ms);
-  animation-fill-mode: forwards;
+  margin-top: 20px;
+  font-weight: 500;
+  font-size: 18px;
+  
+  color: #1f1f1f;
 }
 
-@keyframes mbio {
-  from {
-    opacity: 0;
+.header-logo {
+  color: var(--color-primary);
+  
+  margin-top: 20px;
+  
+  font-size: calc(var(--font-size) + 2vmin);
+  text-decoration: none;
+  font-family: var(--font-primary);
+  font-weight: 700;
+}
+
+.main-content h1 {
+  margin-bottom: calc(var(--space) * 3);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  margin-top: 20px;
+  font-size: calc(var(--font-size) + 4vmin);
+  line-height: calc(var(--line-height) / 1.25);
+}
+
+.main-navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  transition: transform var(--nav-duration);
+  z-index: 1;
+  
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-primary);
+    transform-origin: 0 50%;
+    z-index: -1;
   }
-  to {
-    opacity: 1;
+  
+.main-content ul {
+    font-size: 12vmin;
+    font-family: var(--font-heading);
+    width: 100%;
+  }
+  
+.main-content li {
+    --border-size: 1vmin;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: var(--border-size);
+      background-color: var(--color-secondary);
+      transform-origin: 0 50%;
+      transform: translateX(-100%) skew(15deg);
+    }
+  }
+  
+.main-content a {
+    display: inline-block;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    
+    line-height: 1;
+    text-decoration: none;
+    user-select: none;
+    padding: var(--space) calc(var(--space) * 2) calc(var(--space) + var(--border-size) / 2);
+    transform: translateY(100%);
   }
 }
+
+.main-content {
+  margin: 3rem auto;
+  max-width: 70ch;
+  padding: 0 calc(var(--space) * 2);
+  transform: translateX(0);
+  transition: transform calc(var(--nav-duration) * 2) var(--ease);
+  
+  > * + * {
+    margin-top: calc(var(--space) * var(--line-height));
+  }
+}
+    
