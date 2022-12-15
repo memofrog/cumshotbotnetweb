@@ -1,5 +1,5 @@
 # CumNet Website
-🧑‍💻 Minimalistick website for CumshotBotnet. Write on clean HTML, some CSS and JavaScript for ✨ appearance effect ✨
+🧑‍💻 Minimalistic website for CumshotBotnet. Write on clean HTML, some CSS and JavaScript for ✨ appearance effect ✨
 
 # Self-Host
 You can host this site and remake it, but only if you respect copyright. Let's talk about them below.
